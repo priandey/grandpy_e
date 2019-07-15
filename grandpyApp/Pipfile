@@ -1,0 +1,19 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest = "==4.3.1"
+pytest-mock = "==1.10.4"
+
+[packages]
+flask = "==1.0.2"
+flask-bootstrap = "==3.3.7.1"
+requests = "==2.21.0"
+pytest = "==4.3.1"
+nltk = "*"
+gunicorn = "*"
+
+[requires]
+python_version = "3.7"

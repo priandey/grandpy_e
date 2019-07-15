@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href={{ url_for('static', filename='favicon.ico') }}>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href={{ url_for('static', filename="css/bootstrap.min.css")}}>
+    <link rel="stylesheet" href={{ url_for('static', filename="css/index.css")}}>
+
+    <title>GrandPy's Mind</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12" id="title"><img id="grandpystatic" src={{ url_for('static', filename='img/grandpystat.png')}} height="300" width="300"><img id="grandpygif" src={{ url_for('static', filename='img/grandpygif.gif')}} height="300" width="0"></div>
+      </div>
+      <div class="row">
+        <input type="text" class="col-md-12" id="discussField">
+      </div>
+      <div class="row" id="responseField" style="visibility:hidden"> <!-- Here the bot response -->
+      </div>
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src={{ url_for('static', filename='js/index.js') }}></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZOcr4bMBZ8bwSTIXqLmIFdMI2u0UZRfc"async defer></script>
+    </body>
+    <footer class="page-footer font-small">
+      <div class="footer-copyright text-center py-3">© 2019 Copyright: Riandey Pierre |
+        <a href="https://github.com/priandey/grandpy"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/145px-Octicons-mark-github.svg.png" height:"35px" width="35px"></a>
+      </div>
+  </footer>
+</html>

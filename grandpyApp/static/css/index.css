@@ -1,0 +1,130 @@
+body {
+  padding-top: 10px;
+  background-color: #3c1900;
+}
+[class*="col-"], footer {
+  border-radius: 6px;
+  line-height: 40px;
+}
+
+#inputLabel {
+  border: None;
+  text-align: right;
+  padding-left: 3px;
+}
+
+#discussField {
+  text-align:center;
+  margin-bottom: 20px;
+  margin-top:20%;
+  color:lightgrey;
+}
+
+input[type=text], textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #DDDDDD;
+  background-color: #be9b7b;
+}
+
+input[type=text]:focus, textarea:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+#request {
+  background-color: #be9b7b;
+  border: 2px solid #ad8158;
+  text-align: justify;
+  padding: 5px 5px;
+}
+
+#response {
+  background-color: #8c6745;
+  border: 2px solid #ad8158;
+  text-align: right;
+  padding: 5px 5px;
+  line-height: 1.4em;
+}
+
+#responseField{
+  max-height: 500px;
+  overflow: auto;
+  border: 2px solid #a04200;
+  border-radius: 6px;
+  padding: 4px 10px;
+  background-color: #722f00 ;
+}
+
+#title {
+  text-align: center;
+}
+.outputField {
+  margin-top: 5px;
+  margin-bottom:5px;
+}
+
+.map {
+  height: 200px;
+  margin-top: 20px;
+}
+
+.grandpy {
+  background-color: lightyellow;
+  text-align: right;
+  padding:15px 15px;
+}
+
+.container {
+  border-radius: 6px;
+  padding: 0px 20px;
+  overflow: auto;
+}
+
+footer {
+  height: 45px;
+  width: 100%;
+  font-size: 12px;
+  margin : 2px 2px 2px 2px;
+  color: grey;
+}
+
+@media (min-width: 320px) {
+  .container {
+    width: 320px;
+  }
+  #responseField{
+    max-height: 600px;
+    overflow: auto;
+  }
+  #response{
+    text-align: justify;
+    font-size: 0.8em;
+  }
+
+  #discussField {
+    margin-top: 8%;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}

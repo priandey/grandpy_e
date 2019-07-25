@@ -54,7 +54,12 @@ document.addEventListener("keypress", function (event) {
      let urlElt = document.createElement("a");
      urlElt.href = response['url'];
      urlElt.textContent = "Plus d'informations ici !";
-     responseElt.appendChild(document.createElement("br")),
+     let weatherElt = document.createElement('div');
+     weatherElt.textContent = "Selon mon cousin, MétéoBot, la température minimale est actuellement de "+response['weather']['temp_min']+" et la température maximale de "+response['weather']['temp_max'];
+     responseElt.appendChild(document.createElement("br"));
+     responseElt.appendChild(document.createElement("br"));
+     responseElt.appendChild(weatherElt);
+     responseElt.appendChild(document.createElement("br"));
      responseElt.appendChild(urlElt);
      responseElt.appendChild(mapElt);
      initMap({lat: response['coordinates']['lat'], lng: response['coordinates']['long']}, mapId=mapElt.id);

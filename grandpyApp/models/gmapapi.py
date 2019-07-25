@@ -7,7 +7,7 @@ class GmapApi():
     '''Object in charge of communication with Gmap API '''
 
     def __init__(self):
-        self.api_key = os.environ['GMAPKEY']
+        self.api_key = os.environ.get("GMAPKEY")
         self.gmap_place_details = 'https://maps.googleapis.com/maps/api/place/details/json?'
         self.gmap_place = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?'
 
@@ -21,6 +21,7 @@ class GmapApi():
                    }
         raw_output = requests.get(self.gmap_place_details, params=payload)
         json_output = raw_output.json()
+
         if json_output["status"] == "OK":
             passing_keyword = None
             for info in json_output['result']['address_components']:

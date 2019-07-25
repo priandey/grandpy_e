@@ -3,14 +3,14 @@ import json
 
 from flask import Flask, render_template, request, redirect
 
-from .models import GmapApi, WikiMediaApi, DataParser
+from .models import GmapApi, WikiMediaApi, DataParser, WeatherApi
 
 
 APP = Flask(__name__)
 PARSER = DataParser()
 GMAP = GmapApi()
 WIKIMEDIA = WikiMediaApi()
-
+WEATHER = WeatherApi()
 
 @APP.route('/')
 def index():
@@ -24,11 +24,14 @@ def get_query():
 
     if request.form['improve_kw'] != '':
         PARSER.improve_parser(request.form['improve_kw'].split(" "))
+
     jsdata = str(request.form['userInput'])
     parsed_data = PARSER.kw_parser(jsdata)
     location = GMAP.search_address(parsed_data)
     if location is not None:
         informations = WIKIMEDIA.get_wikidata(location['name'])
+        weather = WEATHER.get_weather({"lat":location["lat"],
+                                       "lon":location["long"]})
         if informations is None:
             informations = WIKIMEDIA.get_wikidata(parsed_data)
             if informations is None:
@@ -38,6 +41,7 @@ def get_query():
                                          "long" : location['long']},
                          "information" : informations['text'],
                          "url" : informations['url'],
+                         "weather" : weather,
                          "search_terms" : location['name'],
                          "status": "ok"
                          }
@@ -46,6 +50,7 @@ def get_query():
         to_return = json.dumps({'status':'error',
                                 'kw':parsed_data.split(" ")
                                 })
+    print(to_return)
     return to_return
 
 @APP.route('/improve', methods=['POST'])

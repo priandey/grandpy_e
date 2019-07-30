@@ -13,8 +13,8 @@ class WeatherApi():
         }
         raw_output = requests.get(self.api_link, params=payload)
         json_output = raw_output.json()
-        temp_min = json_output["main"]["temp_min"]-273,15
-        temp_max = json_output["main"]["temp_max"]-273,15
+        temp_min = round(json_output["main"]["temp_min"]-273.15, 1)
+        temp_max = round(json_output["main"]["temp_max"]-273.15, 1)
 
         return {
             "temp_min": temp_min,

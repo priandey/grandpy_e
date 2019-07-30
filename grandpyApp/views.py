@@ -50,7 +50,6 @@ def get_query():
         to_return = json.dumps({'status':'error',
                                 'kw':parsed_data.split(" ")
                                 })
-    print(to_return)
     return to_return
 
 @APP.route('/improve', methods=['POST'])

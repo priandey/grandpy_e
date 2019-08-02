@@ -2,7 +2,7 @@
 
 from .models import DataParser
 
-PARSER = DataParser()
+parser = DataParser()
 
 class TestParser():
     '''Test for methods of DataParser'''
@@ -17,7 +17,7 @@ class TestParser():
                     ("127,145,Venise", "venise"),
                     ("", "")]
         for entry in to_parse:
-            assert PARSER.kw_parser(entry[0]) == entry[1]
+            assert parser.kw_parser(entry[0]) == entry[1]
 
     def test_parse_info(self):
         '''Test the parsing of the data from wikipedia'''
@@ -30,4 +30,4 @@ class TestParser():
                     ("Phrase 1, Phrase 2, Phrase 3",
                      "Phrase 1, Phrase 2, Phrase 3")]
         for entry in to_parse:
-            assert PARSER.info_parser(entry[0]) == entry[1]
+            assert parser.info_parser(entry[0]) == entry[1]

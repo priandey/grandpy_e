@@ -29,6 +29,7 @@ class WikiMediaApi():
         self.payload["gsrsearch"] = keyword
         raw_output = requests.get(self.url_api, params=self.payload)
         json_output = raw_output.json()
+        print(json_output)
         if len(json_output) > 1:
             key_of_extract = list(json_output['query']['pages'].keys())[0]
             if key_of_extract != '-1':

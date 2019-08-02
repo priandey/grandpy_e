@@ -21,7 +21,6 @@ class GmapApi():
                    }
         raw_output = requests.get(self.gmap_place_details, params=payload)
         json_output = raw_output.json()
-
         if json_output["status"] == "OK":
             passing_keyword = None
             for info in json_output['result']['address_components']:

@@ -1,12 +1,28 @@
+'''
+WeatherApi class
+'''
+
 import requests
 import os
 
 class WeatherApi():
+    '''
+    Object in charge of communicating with the OpenWeather API.
+    '''
+
     def __init__(self):
         self.api_key = os.environ.get("WEATHERKEY")
         self.api_link = "http://api.openweathermap.org/data/2.5/weather?"
 
     def get_weather(self, coordinates):
+        '''
+        Get the current weather on a given location, based on OpenWeatcher data.
+        :param coordinates: Coordinates of location
+        :return: Should return a dict type object containing minimal and maximal
+        temperature in celsius degree and a short description of the weather
+        on given location.
+        '''
+
         payload = {"lat": coordinates['lat'],
                    "lon": coordinates['lon'],
                    "APPID": self.api_key

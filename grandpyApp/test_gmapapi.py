@@ -11,7 +11,9 @@ class TestGmapApi():
 
     @responses.activate
     def test_correct_output_type(self):
-        '''Test that data are being well processed by GmapApi class'''
+        '''
+        Test that data are being well processed by GmapApi object
+        '''
 
         responses.add(responses.GET, 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?',
                       json={'candidates': [{'place_id': 'ChIJiT3W8dqxfkcRLxCSvfDGo3s'}], 'status': 'OK'}, status=200)
@@ -44,9 +46,12 @@ class TestGmapApi():
                      ]
         for entry in to_locate:
             assert type(gmap.search_address(entry[0])) is entry[1]
+
     @responses.activate
     def test_incorrect_output_types(self):
-
+        '''
+        Test behavior of GmapApi object when given invalids sets of data from both API
+        '''
         responses.add(responses.GET, 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?',
                       json={'candidates': [], 'status': 'ZERO_RESULTS'}, status=200)
         responses.add(responses.GET, 'https://maps.googleapis.com/maps/api/place/details/json?',

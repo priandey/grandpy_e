@@ -55,7 +55,7 @@ document.addEventListener("keypress", function (event) {
      urlElt.href = response['url'];
      urlElt.textContent = "Plus d'informations ici !";
      let weatherElt = document.createElement('div');
-     weatherElt.textContent = "Selon mon cousin, MétéoBot, la température minimale est actuellement de "+response['weather']['temp_min']+" et la température maximale de "+response['weather']['temp_max'];
+     weatherElt.textContent = "Selon mon cousin, MétéoBot, la température minimale est actuellement de "+response['weather']['temp_min']+"°C et la température maximale de "+response['weather']['temp_max']+"°C.";
      responseElt.appendChild(document.createElement("br"));
      responseElt.appendChild(document.createElement("br"));
      responseElt.appendChild(weatherElt);
